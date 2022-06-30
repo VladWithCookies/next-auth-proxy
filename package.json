@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.3",
     "axios": "^0.27.2",
     "axios-case-converter": "^0.9.0",
     "http-proxy": "^1.18.1",
     "next": "12.2.0",
     "nookies": "^2.5.2",
+    "ramda": "^0.28.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.33.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.18.0",

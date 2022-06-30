@@ -1,5 +1,12 @@
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+import MainLayout from 'components/templates/MainLayout';
+import AuthProvider from 'components/atoms/AuthProvider';
 
-export default MyApp
+export default function App({ Component, pageProps }) {
+  return (
+    <AuthProvider>
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
+    </AuthProvider>
+  );
+};
