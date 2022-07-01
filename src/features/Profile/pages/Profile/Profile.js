@@ -7,8 +7,7 @@ export default function Profile() {
   const [profile, setProfile] = useState();
 
   useEffect(() => {
-    httpClient.get(USER_PROFILE)
-      .then((response) => setProfile(response.data.data.attributes));
+    httpClient.get(USER_PROFILE).then((response) => setProfile(response.data.data.attributes));
   }, []);
 
   if (!profile) return null;
