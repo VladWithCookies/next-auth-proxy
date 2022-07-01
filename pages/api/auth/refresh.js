@@ -1,5 +1,6 @@
 import { parseCookies } from 'nookies';
 
+import { OAUTH_TOKEN } from 'constants/endpoints';
 import { proxy, onProxyResponse } from 'utils/api/httpProxy';
 
 export const config = {
@@ -9,7 +10,7 @@ export const config = {
 };
 
 const refreshProxy = (req, res) => new Promise((resolve, reject) => {
-  req.url = '/oauth/token';
+  req.url = OAUTH_TOKEN;
 
   proxy.once('error', reject);
 

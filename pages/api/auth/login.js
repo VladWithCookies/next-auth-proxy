@@ -1,3 +1,4 @@
+import { OAUTH_TOKEN } from 'constants/endpoints';
 import { proxy, onProxyResponse } from 'utils/api/httpProxy';
 
 export const config = {
@@ -7,7 +8,7 @@ export const config = {
 };
 
 const loginProxy = (req, res) => new Promise((resolve, reject) => {
-  req.url = '/oauth/token';
+  req.url = OAUTH_TOKEN;
   req.headers.cookie = '';
 
   proxy.once('error', reject);
