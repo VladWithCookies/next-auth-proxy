@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 
+import { AUTH_STATUS } from 'constants/endpoints';
 import { AuthorizedContext, SetAuthorizedContext } from 'contexts/auth';
 import { httpClient } from 'utils/api/httpClient';
 
@@ -8,7 +9,7 @@ export default function AuthProvider({ children }) {
   const [authorized, setAuthorized] = useState();
 
   useEffect(() => {
-    httpClient.get('/api/auth/status').then(({ data }) => setAuthorized(data.authorized));
+    httpClient.get(AUTH_STATUS).then(({ data }) => setAuthorized(data.authorized));
   }, []);
 
   return (

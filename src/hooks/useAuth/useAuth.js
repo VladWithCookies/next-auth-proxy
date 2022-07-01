@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 
+import * as ROUTES from 'constants/routes';
+import * as ENDPOINTS from 'constants/endpoints';
 import { httpClient } from 'utils/api/httpClient';
 import { AuthorizedContext, SetAuthorizedContext } from 'contexts/auth';
 
@@ -10,20 +12,20 @@ const useAuth = () => {
   const setAuthorized = useContext(SetAuthorizedContext);
 
   const signup = async (params) => {
-    await httpClient.post('/api/json/sign_up/users', params);
+    await httpClient.post(ENDPOINTS.SIGN_UP_USERS, params);
 
-    router.push('/login')
+    router.push(ROUTES.LOGIN)
   };
 
   const login = async (params) => {
-    await httpClient.post('/api/auth/login', { ...params, grantType: 'password' });
+    await httpClient.post(ENDPOINTS.AUTH_LOGIN, { ...params, grantType: 'password' });
 
     setAuthorized(true);
     router.push('/');
   };
 
   const logout = async () => {
-    await httpClient.delete('/api/auth/logout');
+    await httpClient.delete(ENDPOINTS.AUTH_LOGOUT);
 
     setAuthorized(false);
     router.push('/');

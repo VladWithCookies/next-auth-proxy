@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import * as ROUTES from 'constants/routes';
 import useAuth from 'hooks/useAuth';
 
 export default function Navigation() {
@@ -15,7 +16,7 @@ export default function Navigation() {
       {authorized ? (
         <>
           <li>
-            <Link href="/profile">
+            <Link href={ROUTES.PROFILE}>
               Profile
             </Link>
           </li>
@@ -31,12 +32,12 @@ export default function Navigation() {
       ) : (
         <>
           <li>
-            <Link href="/login">
+            <Link href={ROUTES.LOGIN}>
               Login
             </Link>
           </li>
           <li>
-            <Link href="/signup">
+            <Link href={ROUTES.SIGNUP}>
               Sign Up
             </Link>
           </li>

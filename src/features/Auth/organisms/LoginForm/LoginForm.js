@@ -5,7 +5,6 @@ import useAuth from 'hooks/useAuth';
 import Form from 'components/molecules/Form';
 import InputField from 'components/molecules/InputField';
 import validationSchema from './validationSchema';
-import signup from '../../../../../pages/signup';
 
 export default function LoginForm() {
   const { login } = useAuth();
