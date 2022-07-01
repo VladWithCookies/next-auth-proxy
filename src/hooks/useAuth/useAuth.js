@@ -2,11 +2,12 @@ import { useContext } from 'react';
 import { useRouter } from 'next/router';
 
 import { httpClient } from 'utils/api/httpClient';
-import { AuthContext } from 'contexts/AuthContext';
+import { AuthorizedContext, SetAuthorizedContext } from 'contexts/auth';
 
 const useAuth = () => {
   const router = useRouter();
-  const { authorized, setAuthorized } = useContext(AuthContext);
+  const authorized = useContext(AuthorizedContext);
+  const setAuthorized = useContext(SetAuthorizedContext);
 
   const signup = async (params) => {
     await httpClient.post('/api/json/sign_up/users', params);
